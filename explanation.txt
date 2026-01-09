@@ -1,0 +1,8 @@
+Web scrapping: coletar informaçao da Web
+
+ -  Requests: libraria que possibilita enviar HTTP requests para websites ou APIs. Python basicamente vai "falar" com a web, como o browser faz. (requests.get) podemos passar os requests.get para response.json()
+    Também permite enviar dados para um servidor (requests.post)
+    Alternativa a requests: urllib (mais complexo)
+
+ -  BeautifulSoup: libraria que traduz a informação que conseguimos com o request
+    Com o requests obtemos uma pagina html, com o BeautifulSoup traduzimos essa pagina e vamos buscar coisas que queremos (BeautifulSoup(url. 'html.parser'))

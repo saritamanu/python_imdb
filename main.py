@@ -12,21 +12,31 @@ def main():
     html=response.text
     soup=BeautifulSoup(html, 'html.parser')
     movietags = soup.select('li.ipc-metadata-list-summary-item')
-    movietags0 = movietags[0]
+    movietagslen = len(movietags)
     def getName(movie_tag):
         name_tag = movie_tag.select_one('h3.ipc-title__text')
-        moviesplit = name_tag.text.split()
-        return moviesplit
+        name = name_tag.text
+        return name
     def getYear(movie_tag):
         year_tag = movie_tag.select_one('span.sc-b4f120f6-7')
-        moviesplit = year_tag.text.split()
+        moviesplit = year_tag.text
         return moviesplit
+    def getRating(movie_tag):
+        rating_tag = movie_tag.select('span.sc-b4f120f6-7')[2]
+        rating = rating_tag.text
+        return rating
     
     names = [getName(tag) for tag in movietags]
     years = [getYear(tag) for tag in movietags]
+    ratings = [getRating(tag) for tag in movietags]
     
-    print(years)
-
+    while True:
+        idx=random.randrange(0, movietagslen)
+        
+        print(f"Movie: {names[idx]}, {years[idx]} - Rating: {ratings[idx]}")
+        user_input = input("Do you want another recommendation? (y/[n]): ").strip().lower()
+        if user_input != 'y':
+            break
 
 
 

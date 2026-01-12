@@ -6,3 +6,12 @@ Web scrapping: coletar informaçao da Web
 
  -  BeautifulSoup: libraria que traduz a informação que conseguimos com o request
     Com o requests obtemos uma pagina html, com o BeautifulSoup traduzimos essa pagina e vamos buscar coisas que queremos (BeautifulSoup(url. 'html.parser'))
+
+Uvicorn:
+   -  High-performance web server 
+
+   if __name__ == "__main__":
+    uvicorn.run(app)
+
+Saber os requirements do projeto:
+   pip freeze > requirements.txt

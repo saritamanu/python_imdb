@@ -15,3 +15,42 @@ Uvicorn:
 
 Saber os requirements do projeto:
    pip freeze > requirements.txt
+
+
+Venv - Virtual Environment
+Cria um ambiente isolado para um projeto com:
+-os seus pacotes Python
+-o seu proprio pip
+-sem intereferência com os outros projetos ou sistemas
+
+Container:
+-Mini máquina que corre a nossa app, incluindo:
+   -código
+   -dependencias
+   -ambiente
+
+Images:
+-Define tudo o que a nossa app precisa: OS, versão Python, librarias, código, etc: daqui, o Docker consegue criar quantos containers quiseres
+
+Dockerfile:
+-script que diz ao docker como construir imagem
+Exemplo:
+#########################################################
+# Use Python 3.11 as base image
+FROM python:3.11
+
+# Set working directory inside container
+WORKDIR /app
+
+# Copy dependencies file
+COPY requirements.txt .
+
+# Install dependencies
+RUN pip install -r requirements.txt
+
+# Copy the rest of the app
+COPY . .
+
+# Command to run your app
+CMD ["python", "app.py"]
+#########################################################
